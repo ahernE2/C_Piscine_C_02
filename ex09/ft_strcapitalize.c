@@ -6,11 +6,11 @@
 /*   By: alejhern <alejhern@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 19:56:18 by alejhern          #+#    #+#             */
-/*   Updated: 2024/03/27 22:17:21 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/03/27 23:40:44 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	return_condition(char condition, char c)
+int	r_con(char condition, char c)
 {
 	if (condition == 'a')
 		return (c >= 'a' && c <= 'z');
@@ -30,14 +30,16 @@ char	*ft_strcapitalize(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (capitalize_next && return_condition('a', str[i]))
+		if (capitalize_next && r_con('a', str[i]))
 		{
 			str[i] -= 32;
 			capitalize_next = 0;
 		}
-		if (!capitalize_next && return_condition('A', str[i]))
+		else if (!capitalize_next && r_con('A', str[i]))
 			str[i] += 32;
-		if (!(return_condition('a', str[i]) || return_condition('A', str[i])))
+		else if (r_con('1', str[i]))
+			capitalize_next = 0;
+		if (!(r_con('a', str[i]) || r_con('A', str[i]) || r_con('1', str[i])))
 			capitalize_next = 1;
 		i++;
 	}
