@@ -6,20 +6,20 @@
 /*   By: alejhern <alejhern@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 19:08:07 by alejhern          #+#    #+#             */
-/*   Updated: 2024/03/27 19:08:57 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/03/27 19:58:43 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strupcase(char *src)
+char	*ft_strupcase(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (src[i])
+	while (str[i])
 	{
-		if (src[i] >= 'a' && src[i] <= 'z')
-			src[i] = src[i] - 32;
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] = str[i] - 32;
 		i++;
 	}
-	return (src);
+	return (str);
 }
