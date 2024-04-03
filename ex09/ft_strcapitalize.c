@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 19:56:18 by alejhern          #+#    #+#             */
-/*   Updated: 2024/03/27 23:40:44 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/04/03 12:22:40 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,12 @@ char	*ft_strcapitalize(char *str)
 	while (str[i])
 	{
 		if (capitalize_next && r_con('a', str[i]))
-		{
 			str[i] -= 32;
-			capitalize_next = 0;
-		}
 		else if (!capitalize_next && r_con('A', str[i]))
 			str[i] += 32;
-		else if (r_con('1', str[i]))
+		if (r_con('a', str[i]) || r_con('A', str[i]) || r_con('1', str[i]))
 			capitalize_next = 0;
-		if (!(r_con('a', str[i]) || r_con('A', str[i]) || r_con('1', str[i])))
+		else
 			capitalize_next = 1;
 		i++;
 	}
